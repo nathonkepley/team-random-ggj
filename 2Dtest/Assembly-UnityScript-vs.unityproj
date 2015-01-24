@@ -5,11 +5,11 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{312F7288-5EAB-7E9D-8577-71B6D1C1B798}</ProjectGuid>
+	<ProjectGuid>{E8E2EE5B-2449-F04E-6F61-3B91D256FBAE}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<AssemblyName>Assembly-UnityScript</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
@@ -46,18 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CrateController.cs" />
-     <Compile Include="Assets\Scripts\CS_Baddies.cs" />
-     <Compile Include="Assets\Scripts\CS_Buddies.cs" />
-     <Compile Include="Assets\Scripts\CS_CameraFollow.cs" />
-     <Compile Include="Assets\Scripts\CS_CheckpointController.cs" />
-     <Compile Include="Assets\Scripts\CS_Checkpoints.cs" />
-     <Compile Include="Assets\Scripts\CS_HpAffect.cs" />
-     <Compile Include="Assets\Scripts\CS_Movement.cs" />
-     <Compile Include="Assets\Scripts\CS_None.cs" />
-     <Compile Include="Assets\Scripts\CS_Numbers.cs" />
-     <Compile Include="Assets\Scripts\CS_PlayerHealth.cs" />
-     <Compile Include="Assets\Scripts\CS_RandomNumber.cs" />
+     <Compile Include="Assets\Scripts\NewBehaviourScript.js" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>

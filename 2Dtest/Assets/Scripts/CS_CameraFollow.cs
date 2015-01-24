@@ -7,7 +7,7 @@ public class CS_CameraFollow : MonoBehaviour
 
 	public Vector3 playerPosition;
 
-	public float lockedZ = -12;
+	public float lockedZ;
 
 	// Use this for initialization
 	void Start () 
