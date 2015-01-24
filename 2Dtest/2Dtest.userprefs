@@ -1,10 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CS_CollectableCounter.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CS_PlayerHealth.cs">
     <Files>
-      <File FileName="Assets\Scripts\CS_PlayerHealth.cs" Line="23" Column="24" />
-      <File FileName="Assets\Scripts\CS_Numbers.cs" Line="42" Column="16" />
-      <File FileName="Assets\Scripts\CS_CollectableCounter.cs" Line="15" Column="32" />
+      <File FileName="Assets\Scripts\CS_Numbers.cs" Line="45" Column="24" />
+      <File FileName="Assets\Scripts\CS_RandomNumber.cs" Line="15" Column="12" />
+      <File FileName="Assets\Scripts\CS_Movement.cs" Line="21" Column="42" />
+      <File FileName="Assets\Scripts\CS_Baddies.cs" Line="17" Column="3" />
+      <File FileName="Assets\Scripts\CS_HpAffect.cs" Line="10" Column="1" />
+      <File FileName="Assets\Scripts\CS_Buddies.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CS_PlayerHealth.cs" Line="20" Column="30" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
