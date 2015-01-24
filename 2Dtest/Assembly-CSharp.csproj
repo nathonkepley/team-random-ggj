@@ -46,20 +46,15 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CS_Baddies.cs" />
-     <Compile Include="Assets\Scripts\CS_Buddies.cs" />
+     <Compile Include="Assets\CS_GameStats.cs" />
      <Compile Include="Assets\Scripts\CS_CameraFollow.cs" />
-     <Compile Include="Assets\Scripts\CS_CheckpointController.cs" />
-     <Compile Include="Assets\Scripts\CS_Checkpoints.cs" />
      <Compile Include="Assets\Scripts\CS_FurnitureBehavior.cs" />
+     <Compile Include="Assets\Scripts\CS_FurnitureManagerBehavior.cs" />
+     <Compile Include="Assets\Scripts\CS_GameState.cs" />
      <Compile Include="Assets\Scripts\CS_HUD.cs" />
      <Compile Include="Assets\Scripts\CS_HpAffect.cs" />
      <Compile Include="Assets\Scripts\CS_InputManager.cs" />
-     <Compile Include="Assets\Scripts\CS_None.cs" />
-     <Compile Include="Assets\Scripts\CS_Numbers.cs" />
      <Compile Include="Assets\Scripts\CS_PlayerBehavior.cs" />
-     <Compile Include="Assets\Scripts\CS_RandomNumber.cs" />
-     <Compile Include="Assets\Scripts\FurnitureManagerBehavior.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
