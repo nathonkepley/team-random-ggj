@@ -8,10 +8,8 @@ public class CS_Numbers : MonoBehaviour
 
 	public bool isTouched;
 
-	public int saved = 0;
 	public int NumberIndex;
 	public int Number;
-	public int done = 0;
 
 
 	// Use this for initialization
@@ -24,7 +22,7 @@ public class CS_Numbers : MonoBehaviour
 
 	void Update ()
 	{
-		if (isTouched == true && done == 0)
+		if (isTouched == true)
 		{
 			if (Input.GetButton("Fire1"))
 			{
@@ -32,26 +30,19 @@ public class CS_Numbers : MonoBehaviour
 				{
 					heatlth.curHealth -= 20;
 					print ("Oww!");
-					renderer.material.color = Color.gray;
 					isTouched = false;
-					done = 1;
 				}
 
 				else if (Number > 5 && (Number <= 8))
 				{
-					saved += 1;
 					print ("You Saved Me!");
-					renderer.material.color = Color.gray;
 					isTouched = false;
-					done = 1;
 				}
 
 				else 
 				{
 					print ("It's Fucking Nothing");
-					renderer.material.color = Color.gray;
 					isTouched = false;
-					done = 1;
 				}
 			}
 		}
