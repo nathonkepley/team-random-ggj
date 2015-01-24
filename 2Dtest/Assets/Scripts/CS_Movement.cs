@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CS_Movement : MonoBehaviour 
 {
-	public float Speed = 2f;
+	public float walkSpeed = 2f;
 	public float runSpeed =    5f;
 
 
@@ -17,18 +17,18 @@ public class CS_Movement : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 		{
-
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            float moveSpeed;
+            if (Input.GetButton("Fire3"))
             {
-                Speed = runSpeed;
+                moveSpeed = runSpeed;
             }
-            if (Input.GetKeyUp(KeyCode.LeftShift))
+            else
             {
-                Speed = 2f;
+                moveSpeed = walkSpeed;
             }
 
-        transform.Translate(Input.GetAxis("Horizontal") * Speed * Time.deltaTime
-            , Input.GetAxis("Vertical") * Speed * Time.deltaTime
+        transform.Translate(Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime
+            , Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime
             , 0.0f);
 
         renderer.sortingOrder = 1000 - (int)((transform.position.y - renderer.bounds.extents.y) * 100);
