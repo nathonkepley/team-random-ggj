@@ -72,7 +72,7 @@ public class CS_SpeechBehavior : MonoBehaviour {
         }
 	}
 
-    void Activate()
+    public void Activate()
     {
         gameObject.SetActive(true);
         _currentLifetime = lifetime;

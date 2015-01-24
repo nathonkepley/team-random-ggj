@@ -15,5 +15,10 @@ public class CS_InputManager : MonoBehaviour
         {
             furnitureManager.PlayerActivated();
         }
+
+        if (Input.GetButton("Fire2"))
+        {
+            player.Call();
+        }
 	}
 }

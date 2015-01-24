@@ -5,12 +5,14 @@ public class CS_PlayerBehavior : MonoBehaviour
 {
 	public float walkSpeed = 2f;
 
+    private CS_SpeechBehavior _speech;
     private Animator _animator;
     private float _moveX, _moveY;
 
 	// Use this for initialization
 	void Start () 
     {
+        _speech = this.GetComponentInChildren<CS_SpeechBehavior>();
 	    _animator = this.GetComponent<Animator>();
         _moveX = 0f;
         _moveY = 0f;
@@ -21,16 +23,6 @@ public class CS_PlayerBehavior : MonoBehaviour
         transform.Translate(_moveX * Time.deltaTime, _moveY * Time.deltaTime, 0.0f);
         renderer.sortingOrder = 1000 - (int)((transform.position.y - renderer.bounds.extents.y) * 100);
     }
-
-	void OnCollisionEnter(Collision other)
-		{
-			
-		}
-
-	void OnCollisionExit (Collision other)
-		{
-			
-		}
 
     public void Move(float x, float y)
     {
@@ -46,5 +38,10 @@ public class CS_PlayerBehavior : MonoBehaviour
         {
             _animator.SetBool("moving", false);
         }
+    }
+
+    public void Call()
+    {
+        _speech.Activate();
     }
 }
