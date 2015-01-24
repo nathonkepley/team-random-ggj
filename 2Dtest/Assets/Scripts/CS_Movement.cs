@@ -4,49 +4,42 @@ using System.Collections;
 public class CS_Movement : MonoBehaviour 
 {
 	public float walkSpeed = 2f;
-	public float runSpeed =    5f;
 
-
+    private float _moveX, _moveY;
+    private Animator _animator;
 
 	// Use this for initialization
 	void Start () 
-		{
-		
-		}
+    {
+	    _animator = this.GetComponent<Animator>();
+        _moveX = 0.0f;
+        _moveY = 0.0f;
+	}
 	
 	// Update is called once per frame
 	void Update () 
-		{
-            float moveSpeed;
-            if (Input.GetButton("Fire3"))
-            {
-                moveSpeed = runSpeed;
-            }
-            else
-            {
-                moveSpeed = walkSpeed;
-            }
+	{
+        _moveX = Input.GetAxis("Horizontal") * walkSpeed;
+        _moveY = Input.GetAxis("Vertical") * walkSpeed;
 
-        transform.Translate(Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime
-            , Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime
-            , 0.0f);
+        if ((_moveX != 0f) || (_moveY != 0f))
+        {
+            _animator.SetBool("moving", true);
+            _animator.SetFloat("moveX", _moveX);
+            _animator.SetFloat("moveY", _moveY);
+        }
+        else
+        {
+            _animator.SetBool("moving", false);
+        }
+        
+	}
 
-        renderer.sortingOrder = 1000 - (int)((transform.position.y - renderer.bounds.extents.y) * 100);
-        /*
-			if (Input.GetKey (KeyCode.D))
-				{
-					transform.Translate (Vector2.right * Speed * Time.deltaTime);
-					transform.eulerAngles = new Vector3 (0,0,0);
-				}
-			
-			if (Input.GetKey (KeyCode.A))
-				{
-					transform.Translate (Vector2.right * Speed * Time.deltaTime);
-					transform.eulerAngles = new Vector3 (0,180,0);
-				}
-        */
-			
-		}
+    void FixedUpdate()
+    {
+        transform.Translate(_moveX * Time.deltaTime, _moveY * Time.deltaTime, 0.0f);
+        //renderer.sortingOrder = 1000 - (int)((transform.position.y - renderer.bounds.extents.y) * 100);
+    }
 
 	void OnCollisionEnter(Collision other)
 		{
