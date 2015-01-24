@@ -12,7 +12,7 @@ public class CS_RandomNumber : MonoBehaviour
 
 
 
-	void Start () 
+	void Awake () 
 	{
 	for (int i = 0 ; i < 25; i++)
 		{
@@ -35,5 +35,6 @@ public class CS_RandomNumber : MonoBehaviour
 			//text.SetActive (true);
 		}
 	}
+
 
 }

@@ -17,6 +17,7 @@ public class CS_PlayerHealth : MonoBehaviour
 		if (curHealth <= 0)
 		{
 			curHealth = 0;
+			Application.LoadLevel ("2d_1");
 		}
 
 		if (curHealth >= 100)
