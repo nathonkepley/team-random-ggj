@@ -6,7 +6,14 @@ public class CS_GameState : MonoBehaviour
     public int curHealth = 100;
     public int maxHealth = 100;
     public int saved = 0;
-    public int canCollect = 3;
+
+    public CS_FurnitureManagerBehavior furnitureManager;
+    public int canCollect;
+
+    void Start()
+    {
+        canCollect = furnitureManager.numBuddies;
+    }
 
     // Use this for initialization
     void Update()
