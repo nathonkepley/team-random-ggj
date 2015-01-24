@@ -53,11 +53,12 @@
      <Compile Include="Assets\Scripts\CS_CheckpointController.cs" />
      <Compile Include="Assets\Scripts\CS_Checkpoints.cs" />
      <Compile Include="Assets\Scripts\CS_HpAffect.cs" />
-     <Compile Include="Assets\Scripts\CS_Movement.cs" />
      <Compile Include="Assets\Scripts\CS_None.cs" />
      <Compile Include="Assets\Scripts\CS_Numbers.cs" />
+     <Compile Include="Assets\Scripts\CS_PlayerBehavior.cs" />
      <Compile Include="Assets\Scripts\CS_PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\CS_RandomNumber.cs" />
+     <Compile Include="Assets\Scripts\FurnitureBehavior.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
