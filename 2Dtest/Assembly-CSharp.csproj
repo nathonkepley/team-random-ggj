@@ -59,6 +59,8 @@
      <Compile Include="Assets\Scripts\CS_PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\CS_RandomNumber.cs" />
      <Compile Include="Assets\Scripts\FurnitureBehavior.cs" />
+     <Compile Include="Assets\Scripts\FurnitureManagerBehavior.cs" />
+     <Compile Include="Assets\Scripts\InputManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
