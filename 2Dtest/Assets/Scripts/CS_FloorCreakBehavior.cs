@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CS_HpAffect : MonoBehaviour 
+public class CS_FloorCreakBehavior : MonoBehaviour 
 {
     public CS_GameState state;
 
 	public int damageDone;
-	public int hpGained;
 
 	public bool isTouched;
 	
@@ -17,16 +16,6 @@ public class CS_HpAffect : MonoBehaviour
 		{
             state.curHealth = state.curHealth - damageDone;
 
-			if (gameObject.tag == "Enemy")
-			{
-				gameObject.SetActive (false);
-			}
-		}
-
-		if (isTouched == true)
-		{
-            state.curHealth = state.curHealth + hpGained;
-			
 			if (gameObject.tag == "Enemy")
 			{
 				gameObject.SetActive (false);
