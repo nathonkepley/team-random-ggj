@@ -12,9 +12,10 @@ public class CS_FurnitureBehavior : MonoBehaviour
 	public GameObject buttons;
 	public AudioClip baddieSound;
 	public AudioClip buddieSound;
-	public CS_Yes opened;
-	public CS_No nope;
+    public float callLifetime = 2f;
 
+    public CS_SpeechBehavior _speech;
+    private float _currentCallLifetime;
 
 	void Update()
     {
@@ -23,15 +24,29 @@ public class CS_FurnitureBehavior : MonoBehaviour
 
 	void Start()
 	{
+        _speech = this.GetComponentInChildren<CS_SpeechBehavior>();
+        _speech.gameObject.SetActive(false);
+        _currentCallLifetime = 0f;
+
 		buttons.SetActive (false);
-		opened = GameObject.Find ("Question Manager").GetComponent <CS_Yes>();
-		nope = GameObject.Find ("Question Manager").GetComponent <CS_No> ();
 	}
 
 	void Awake ()
 	{
 		buttons = GameObject.Find ("Question Buttons");
 	}
+
+    void FixedUpdate()
+    {
+        if (_currentCallLifetime >= 0f)
+        {
+            _currentCallLifetime -= Time.deltaTime;
+            if (_currentCallLifetime <= 0f)
+            {
+                _speech.gameObject.SetActive(false);
+            }
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -52,27 +67,31 @@ public class CS_FurnitureBehavior : MonoBehaviour
         {
             case FurnitureContents.Baddie:
 			audio.PlayOneShot(baddieSound, 0.7F);
-			if (opened.open == true)
+            if (state.open == true)
 				{
 	                state.curHealth -= 20;
 	                print("Oww!");
 					renderer.material.color = Color.gray;
-					Time.timeScale = 1;
+                    //state.gameMode = GameMode.Play;
+                Time.timeScale = 1;
 					buttons.SetActive (false);
 					isTouched = false;
 					done = 1;
-					opened.open = false;
+                    state.open = false;
 				}
 			else
 				{
 					buttons.SetActive (true);
-					Time.timeScale = 0;
+                    //state.gameMode = GameMode.Menu;
+                Time.timeScale = 0;
 				}
-			if (nope.notOpened == true)
+
+            if (state.notOpened == true)
 			{
 				buttons.SetActive (false);
-				Time.timeScale = 1;
-				nope.notOpened = false;
+                //state.gameMode = GameMode.Play;
+                Time.timeScale = 1;
+                state.notOpened = false;
 				isTouched = false;
 				done = 0;
 			}
@@ -81,57 +100,69 @@ public class CS_FurnitureBehavior : MonoBehaviour
 
             case FurnitureContents.Buddy:
 			audio.PlayOneShot(buddieSound, 0.7F);
-			if (opened.open == true)
+            if (state.open == true)
 				{
 	                state.saved += 1;
 	                print("You Saved Me!");
 					renderer.material.color = Color.gray;
-					Time.timeScale = 1;
+                    //state.gameMode = GameMode.Play;
+                Time.timeScale = 1;
 					buttons.SetActive (false);
 					isTouched = false;
 					done = 1;
-					opened.open = false;
+                    state.open = false;
 				}
 			else
 				{
 					buttons.SetActive (true);
-					Time.timeScale = 0;
+                    //state.gameMode = GameMode.Menu;
+                Time.timeScale = 0;
 				}
-			if (nope.notOpened == true)
+            if (state.notOpened == true)
 			{
 				buttons.SetActive (false);
-				Time.timeScale = 1;
+                //state.gameMode = GameMode.Play;
+                Time.timeScale = 1;
 				done = 0;
 				isTouched = false;
-				nope.notOpened = false;
+                state.notOpened = false;
 			}
                 break;
 
             case FurnitureContents.Nothing:
-			if (opened.open == true)
+                if (state.open == true)
 				{
 	                print("It's Nothing");
 					renderer.material.color = Color.gray;
-					Time.timeScale = 1;
+                    //state.gameMode = GameMode.Play;
+                    Time.timeScale = 1;
 					buttons.SetActive (false);
 					isTouched = false;
 					done = 1;
-					opened.open = false;
+                    state.open = false;
 				}
 			else
 				{
 					buttons.SetActive (true);
-					Time.timeScale = 0;
+                    //state.gameMode = GameMode.Menu;
+                    Time.timeScale = 0;
 				}
-			if (nope.notOpened == true)
+                if (state.notOpened == true)
 			{
 				buttons.SetActive (false);
-				Time.timeScale = 1;
-				nope.notOpened = false;
+                //state.gameMode = GameMode.Play;
+                    Time.timeScale = 1;
+                state.notOpened = false;
 				isTouched = false;
 				done = 0;
 			}
 			break;
         }
+    }
+
+    public void Call()
+    {
+        _currentCallLifetime = callLifetime;
+        _speech.gameObject.SetActive(true);
     }
 }

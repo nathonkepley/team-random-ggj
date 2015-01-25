@@ -3,8 +3,8 @@ using System.Collections;
 
 public class CS_Yes : MonoBehaviour 
 {
-	public bool open = false;
-
+    public CS_GameState state;
+	
 
 	// Use this for initialization
 	void Start () 
@@ -15,12 +15,12 @@ public class CS_Yes : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		
+
 	}
 
 	public void OnClick ()
 	{
-		open = true;
+		state.open = true;
 	}
 
 

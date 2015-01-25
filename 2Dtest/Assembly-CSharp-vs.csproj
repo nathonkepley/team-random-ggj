@@ -46,12 +46,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\CS_CallOutBehavior.cs" />
      <Compile Include="Assets\Scripts\CS_CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\CS_FloorCreakBehavior.cs" />
      <Compile Include="Assets\Scripts\CS_FurnitureBehavior.cs" />
      <Compile Include="Assets\Scripts\CS_FurnitureManagerBehavior.cs" />
      <Compile Include="Assets\Scripts\CS_GameState.cs" />
      <Compile Include="Assets\Scripts\CS_HUD.cs" />
-     <Compile Include="Assets\Scripts\CS_HpAffect.cs" />
      <Compile Include="Assets\Scripts\CS_InputManager.cs" />
      <Compile Include="Assets\Scripts\CS_No.cs" />
      <Compile Include="Assets\Scripts\CS_PlayerBehavior.cs" />

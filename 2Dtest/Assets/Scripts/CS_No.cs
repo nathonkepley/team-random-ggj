@@ -3,7 +3,8 @@ using System.Collections;
 
 public class CS_No : MonoBehaviour 
 {
-	public bool notOpened = false;
+    public CS_GameState state;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -18,6 +19,6 @@ public class CS_No : MonoBehaviour
 
 	public void OnClick ()
 	{
-		notOpened = true;
+		state.notOpened = true;
 	}
 }

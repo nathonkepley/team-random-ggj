@@ -40,12 +40,16 @@ public class CS_FurnitureManagerBehavior : MonoBehaviour
 
     public void PlayerActivated()
     {
-        foreach (CS_FurnitureBehavior f in _furniture)
+        int i = 0;
+        while (i < _furniture.Length)
         {
-            if (f.isTouched)
+            if (_furniture[i].isTouched)
             {
-                f.Activate();
+                _furniture[i].Activate();
+                break;
             }
+
+            i++;
         }
     }
 }
