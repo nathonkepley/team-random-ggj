@@ -5,6 +5,7 @@ public class CS_Yes : MonoBehaviour
 {
 	public bool open = false;
 
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -14,7 +15,7 @@ public class CS_Yes : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-
+		
 	}
 
 	public void OnClick ()
