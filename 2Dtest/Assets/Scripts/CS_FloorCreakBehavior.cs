@@ -18,20 +18,20 @@ public class CS_FloorCreakBehavior : MonoBehaviour
 
 			if (gameObject.tag == "Enemy")
 			{
-				gameObject.SetActive (false);
+                isTouched = false;
 			}
 		}
 	}
 
-	void OnTriggerEnter(Collider other)
+	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.tag == "Player")
+		if ((other.gameObject.tag == "Player") && (other.isTrigger == false))
 		{
 			isTouched = true;
 		}
 	}
 
-	void OnTriggerExit ()
+	void OnTriggerExit2D()
 	{
 		isTouched = false;
 	}

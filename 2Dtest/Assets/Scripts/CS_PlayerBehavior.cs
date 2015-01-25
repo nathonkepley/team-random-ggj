@@ -3,11 +3,12 @@ using System.Collections;
 
 public class CS_PlayerBehavior : MonoBehaviour 
 {
+    public CS_GameState state;
 	public float walkSpeed = 2f;
+    public int callDamage = 10;
     public float callLifetime = 2f;
 
     private CS_SpeechBehavior _speech;
-    private CS_CallOutBehavior _callOut;
     private Animator _animator;
     private float _moveX, _moveY;
     private float _currentCallLifetime;
@@ -16,9 +17,7 @@ public class CS_PlayerBehavior : MonoBehaviour
 	void Start () 
     {
         _speech = this.GetComponentInChildren<CS_SpeechBehavior>();
-        _callOut = this.GetComponentInChildren<CS_CallOutBehavior>();
         _speech.gameObject.SetActive(false);
-        _callOut.gameObject.SetActive(false);
 	    _animator = this.GetComponent<Animator>();
         _moveX = 0f;
         _moveY = 0f;
@@ -36,7 +35,6 @@ public class CS_PlayerBehavior : MonoBehaviour
             if (_currentCallLifetime <= 0f)
             {
                 _speech.gameObject.SetActive(false);
-                _callOut.gameObject.SetActive(false);
             }
         }
     }
@@ -61,6 +59,23 @@ public class CS_PlayerBehavior : MonoBehaviour
     {
         _currentCallLifetime = callLifetime;
         _speech.gameObject.SetActive(true);
-        _callOut.gameObject.SetActive(true);
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 10f);
+        foreach (Collider2D c in colliders)
+        {
+            if (c.tag == "Hide Spots")
+            {
+                CS_FurnitureBehavior f = c.GetComponentInParent<CS_FurnitureBehavior>();
+                if ((f.contents != FurnitureContents.Nothing) && (f.done == 0))
+                {
+                    f.Call();
+                }
+            }
+        }
+
+        if (colliders.Length > 0)
+        {
+            state.curHealth -= callDamage;
+        }
     }
 }

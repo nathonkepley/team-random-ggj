@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum FurnitureContents { Baddie, Buddy, Nothing }
+public enum FurnitureContents { Monster1, Monster2, Monster3, Monster4, Friend1, Friend2, Friend3, Friend4, Nothing }
 
 public class CS_FurnitureBehavior : MonoBehaviour
 {
@@ -13,6 +13,8 @@ public class CS_FurnitureBehavior : MonoBehaviour
 	public AudioClip baddieSound;
 	public AudioClip buddieSound;
     public float callLifetime = 2f;
+    public int buddyHeal = 20;
+    public int baddieDamage = 50;
 
     public CS_SpeechBehavior _speech;
     private float _currentCallLifetime;
@@ -50,7 +52,7 @@ public class CS_FurnitureBehavior : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if ((other.tag == "Player") && (other.isTrigger == false))
         {
             isTouched = true;
         }
@@ -65,11 +67,14 @@ public class CS_FurnitureBehavior : MonoBehaviour
     {
         switch (contents)
         {
-            case FurnitureContents.Baddie:
+            case FurnitureContents.Monster1:
+            case FurnitureContents.Monster2:
+            case FurnitureContents.Monster3:
+            case FurnitureContents.Monster4:
 			audio.PlayOneShot(baddieSound, 0.7F);
             if (state.open == true)
 				{
-	                state.curHealth -= 20;
+	                state.curHealth -= baddieDamage;
 	                print("Oww!");
 					renderer.material.color = Color.gray;
                     //state.gameMode = GameMode.Play;
@@ -98,10 +103,14 @@ public class CS_FurnitureBehavior : MonoBehaviour
 
 			break;
 
-            case FurnitureContents.Buddy:
+            case FurnitureContents.Friend1:
+            case FurnitureContents.Friend2:
+            case FurnitureContents.Friend3:
+            case FurnitureContents.Friend4:
 			audio.PlayOneShot(buddieSound, 0.7F);
             if (state.open == true)
 				{
+                    state.curHealth += buddyHeal;
 	                state.saved += 1;
 	                print("You Saved Me!");
 					renderer.material.color = Color.gray;

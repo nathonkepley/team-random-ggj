@@ -3,9 +3,6 @@ using System.Collections;
 
 public class CS_FurnitureManagerBehavior : MonoBehaviour
 {
-    public int numBaddies;
-    public int numBuddies;
-
     CS_FurnitureBehavior[] _furniture;
 
     void Awake()
@@ -22,17 +19,17 @@ public class CS_FurnitureManagerBehavior : MonoBehaviour
             _furniture[n] = value;
         }
 
-        for (int i = 0; i < numBaddies; i++)
-        {
-            _furniture[i].contents = FurnitureContents.Baddie;
-        }
+        _furniture[0].contents = FurnitureContents.Monster1;
+        _furniture[1].contents = FurnitureContents.Monster2;
+        _furniture[2].contents = FurnitureContents.Monster3;
+        _furniture[3].contents = FurnitureContents.Monster4;
 
-        for (int i = numBaddies; i < numBaddies + numBuddies; i++)
-        {
-            _furniture[i].contents = FurnitureContents.Buddy;
-        }
+        _furniture[4].contents = FurnitureContents.Friend1;
+        _furniture[5].contents = FurnitureContents.Friend2;
+        _furniture[6].contents = FurnitureContents.Friend3;
+        _furniture[7].contents = FurnitureContents.Friend4;
 
-        for (int i = numBaddies + numBuddies; i < _furniture.Length; i++)
+        for (int i = 8; i < _furniture.Length; i++)
         {
             _furniture[i].contents = FurnitureContents.Nothing;
         }
